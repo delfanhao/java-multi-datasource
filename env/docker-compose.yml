@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  remote:
+    image: mdillon/postgis:latest
+    ports:
+      - 5432:5432
+    volumes:
+      - ./remote:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: 123456
+
+  local:
+    image: mdillon/postgis:latest
+    ports:
+      - 5434:5432
+    volumes:
+      - ./local:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: 123456
+
